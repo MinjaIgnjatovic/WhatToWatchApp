@@ -7,7 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ExploreComponent } from './components/explore/explore.component';
 import { EventComponent } from './components/event/event.component';
-import { AboutComponent } from './components/about/about.component';
+import { WatchListComponent } from './components/watch-list/watch-list.component';
 import { TwitterComponent } from './components/twitter/twitter.component';
 import { SponsorComponent } from './components/sponsor/sponsor.component';
 import { ContactComponent } from './components/contact/contact.component';
@@ -31,7 +31,7 @@ const appRoutes: Routes=[
     NavbarComponent,
     ExploreComponent,
     EventComponent,
-    AboutComponent,
+    WatchListComponent,
     TwitterComponent,
     SponsorComponent,
     ContactComponent,

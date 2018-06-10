@@ -2,7 +2,7 @@ import {Movie} from '../../models/movie';
 import { Action } from "@ngrx/store";
 
 import { Http } from '@angular/http';
-import { SEARCH_GENRE, SearchGenre, SEARCH_MOVIE,SearchMovie } from "../actions";
+import { SEARCH_GENRE, SearchGenre, SEARCH_MOVIE,SearchMovie,POSITIVE_VOTE,PositiveVote,NEGATIVE_VOTE,NegativeVote } from "../actions";
 
 const initialState: Movie[] =  [
     {
@@ -12,7 +12,9 @@ const initialState: Movie[] =  [
         description: "Teenagers Katie and Becca discuss an urban legend about a videotape; whoever watches it dies seven days later. Katie confesses that she watched the tape with her friends the previous week. That night, Katie dies and Becca goes insane.",
         genre:"Horor",
         year:"2002",
-        rating:8.5
+        rating:8.5,
+        positive:20,
+        negative:10
     },
     {
         id: 1,
@@ -21,7 +23,9 @@ const initialState: Movie[] =  [
         description:"The Hangover is a series of three American comedy films created by Jon Lucas and Scott Moore and directed by Todd Phillips. All three films follows the misadventures of a quartet of friends also known as 'the Wolfpack'.",
         genre:"Comedy",
         year:"2012",
-        rating:8.4
+        rating:8.4,
+        positive:20,
+        negative:10
     },
     {
         id: 2,
@@ -30,7 +34,9 @@ const initialState: Movie[] =  [
         description: "Remember me is a romantic drama centered on two new lovers. First, Tyler, whose parents have split in the wake of his brother's suicide, and second, Ally, who lives each day to the fullest since witnessing her mother's murder.",
         genre:"Drama",
         year:"2009",
-        rating:9.0
+        rating:9.0,
+        positive:20,
+        negative:10
 
     },
     {
@@ -40,7 +46,9 @@ const initialState: Movie[] =  [
         description: "Foul-mouthed mutant mercenary Wade Wilson (AKA. Deadpool), brings together a team of fellow mutant rogues to protect a young boy with supernatural abilities from the brutal, time-traveling cyborg, Cable.",
         genre:"Action",
         year:"2016",
-        rating:8.4
+        rating:8.4,
+        positive:20,
+        negative:10
     },
     {
         id: 4,
@@ -49,7 +57,9 @@ const initialState: Movie[] =  [
         description: "Sheriff Deputy Rick Grimes wakes up from a coma to learn the world is in ruins, and must lead a group of survivors to stay alive.",
         genre:"Thriller",
         year:"2015",
-        rating:8.1
+        rating:8.1,
+        positive:20,
+        negative:10
     },
     {
         id: 5,
@@ -58,7 +68,9 @@ const initialState: Movie[] =  [
         description: "A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy's room.",
         genre:"Animation",
         year:"2016",
-        rating:8.3
+        rating:8.3,
+        positive:20,
+        negative:10
     },
     {
         id: 6,
@@ -67,7 +79,9 @@ const initialState: Movie[] =  [
         description: "A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy's room.",
         genre:"Animation",
         year:"2013",
-        rating:8.0
+        rating:8.0,
+        positive:20,
+        negative:10
     }
 
 
@@ -126,6 +140,14 @@ export default function (state: Movie[] = initialState, action: Action) {
                 return found;
             else
             return null;
+        }
+        case POSITIVE_VOTE:
+        {
+            //treba da se izmeni u bazi
+        }
+        case NEGATIVE_VOTE:
+        {
+            //izmena
         }
         default: {
             return state

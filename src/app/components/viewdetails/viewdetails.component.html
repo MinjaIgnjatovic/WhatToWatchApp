@@ -20,8 +20,15 @@
                             <span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star"></span>
-                            (10 reviews)
+                           Imdb: {{movie.rating}}
+                            <br/>
+                           (Positive votes: {{movie.positive}}, 
+                            
+                            Negative votes: {{movie.negative}})
+                            
                         </div>
+                        <br />
+                        <br />
                         <p>{{movie.description}}</p>
                         <div class="row">
                             <div class="col-md-4 col-sm-6 col-xs-12">
@@ -42,8 +49,11 @@
                         </div>
                         <div class="space-ten"></div>
                         <div class="btn-ground">
-                            <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Add Vote</button>
-                            <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-heart"></span> Add To Watchlist</button>
+                                <button type="button"  id="testBtn"  class="btn btn-success glyphicon glyphicon-thumbs-up" data-loading-text=" ... " (click)="positiveVote()"> </button>
+                        <button type="button" id="testBtnDown" class="btn btn-success glyphicon glyphicon-thumbs-down" data-loading-text=" ... "(click)="negativeVote()"> </button>
+                           <!-- <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Add Vote</button>-->
+                           <br />
+                            <button type="button" class="btn btn-primary" (click)="addToWatchList(movie)"><span class="glyphicon glyphicon-heart"></span> Add To Watchlist</button>
                         </div>
                     </div>
                 </div>

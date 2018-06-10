@@ -12,7 +12,7 @@ export default function (view: Movie=null, action: Action) {
         {
             const {movie} = (action as  ViewDetails);
             view=movie;
-            console.log("Usao u view reducer");
+            
             return view;
                
         }

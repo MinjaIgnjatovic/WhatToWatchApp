@@ -1,0 +1,41 @@
+<section id="explore">
+  <div class="container">
+    <div class="row">
+      <div class="watch">
+        </div>				
+      <div class="col-md-4 col-md-offset-2 col-sm-5">
+        <h2>explore your favourite genre</h2>
+       
+      </div>				
+      <div class="col-sm-7 col-md-6">		
+        
+          		
+              <form>
+                  <fieldset>
+                      <div class="form-group">
+                          <select [(ngModel)]="selectedOption" name="first" class="form-control" id='trazi' >
+                              <option *ngFor="let o of options">
+                                {{o.name}}
+                              </option>     
+                          </select>
+                        </div>
+                      <button class="btn btn-primary" (click)="searchGenre()">Explore</button>
+                  </fieldset>
+              </form> 
+              <br />
+              <br />
+              <fieldset>
+                  <div class="form-group">
+                    <p>Or search for movie title:</p>
+                      <input [(ngModel)]="searchMoviee" type="text" class="form-control" placeholder="Type movie title" />
+                    </div>
+                  <button class="btn btn-primary" (click)="searchMovie()">Search</button>
+              </fieldset>
+                    
+      </div>
+
+    </div>
+   
+  </div>
+  
+</section>

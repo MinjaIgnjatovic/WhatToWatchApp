@@ -1,0 +1,56 @@
+{
+    "movies": [
+    {
+        "id": 0,
+        "title": "Ring",
+        "imgsrc": "https://d1uzk9o9cg136f.cloudfront.net/resource/front-row/2017/01/fr-rings-prank.jpg",
+        "description": "Teenagers Katie and Becca discuss an urban legend about a videotape; whoever watches it dies seven days later. Katie confesses that she watched the tape with her friends the previous week. That night, Katie dies and Becca goes insane.",
+        "genre":"Horor",
+        "rating":8.5
+    },
+    {
+        "id": 1,
+        "title": "The Hangover",
+        "imgsrc": "https://upload.wikimedia.org/wikipedia/en/9/9f/The_Hangover_Trilogy_DVD_cover.jpg",
+        "description":"The Hangover is a series of three American comedy films created by Jon Lucas and Scott Moore and directed by Todd Phillips. All three films follows the misadventures of a quartet of friends (also known as 'the Wolfpack') who go on their road trip to attend a bachelor party.",
+        "genre":"Comedy",
+        "rating":8.4
+    },
+    {
+        "id": 2,
+        "title": "Remember Me",
+        "imgsrc": "https://m.media-amazon.com/images/M/MV5BOTA4MTg1ODkwNF5BMl5BanBnXkFtZTcwMzE5ODAxMw@@._V1_SY1000_CR0,0,674,1000_AL_.jpg",
+        "description": "A romantic drama centered on two new lovers: Tyler, whose parents have split in the wake of his brother's suicide, and Ally, who lives each day to the fullest since witnessing her mother's murder.",
+        "genre":"Drama",
+        "rating":9.0
+
+    },
+    {
+        "id": 3,
+        "title": " Avengers: Infinity War",
+        "imgsrc": "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_SY1000_CR0,0,674,1000_AL_.jpg",
+        "description": "Foul-mouthed mutant mercenary Wade Wilson (AKA. Deadpool), brings together a team of fellow mutant rogues to protect a young boy with supernatural abilities from the brutal, time-traveling cyborg, Cable.",
+        "genre":"Action",
+        "rating":8.4
+    },
+    {
+        "id": 4,
+        "title": "The Walking Dead",
+        "imgsrc": "https://m.media-amazon.com/images/M/MV5BZTA3OGU2Y2EtYWIxNy00ZThmLWJhNjYtMmU5NDk4ZWI3Yzc3XkEyXkFqcGdeQXVyNDI4MzQ0MzQ@._V1_SY1000_CR0,0,666,1000_AL_.jpg",
+        "description": "Sheriff Deputy Rick Grimes wakes up from a coma to learn the world is in ruins, and must lead a group of survivors to stay alive.",
+        "genre":"Thriller",
+        "rating":8.1
+    },
+    {
+        "id": 5,
+        "title": "Toy Story 3",
+        "imgsrc": "https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_SY1000_SX670_AL_.jpg",
+        "description": "A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy's room.",
+        "genre":"Animation",
+        "rating":8.3
+    }
+
+
+
+]
+  }

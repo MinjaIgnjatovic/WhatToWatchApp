@@ -15,7 +15,9 @@ export class ExploreComponent implements OnInit {
 
   selectedOption:string;
   printedOption:string;
-  searchMoviee:string
+  searchMoviee:string;
+
+  
   
   //public genre$: Observable<string>
 

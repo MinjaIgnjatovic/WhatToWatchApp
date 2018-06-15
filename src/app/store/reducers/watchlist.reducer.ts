@@ -11,18 +11,23 @@ export default function (watchlist: Movie[]=[], action: Action) {
         case ADD_TO_WATCHLIST:
         {
              const {movie} = (action as  AddToWatchlist);
-           // watchlist[movie.id]=new Movie(movie.id,movie.title,movie.imgsrc,movie.description,movie.genre,movie.rating,movie.year);
-            watchlist.push(new Movie(movie.id,movie.title,movie.imgsrc,movie.description,movie.genre,movie.rating,movie.year));
+            const l=watchlist.length;
+           watchlist[l]=new Movie(movie.id,movie.title,movie.imgsrc,movie.description,movie.genre,movie.rating,movie.year);
+           // watchlist.push(new Movie(movie.id,movie.title,movie.imgsrc,movie.description,movie.genre,movie.rating,movie.year));
              return watchlist;
                
         }
         case REMOVE_MOVIE:
         {
-            const {movie} = (action as  AddToWatchlist);
+            console.log("reducer");
+            const {movie} = (action as  RemoveFromWatchlist);
            // delete watchlist[movie.id];
-            watchlist.filter(mov=>mov!=movie);
+           var found:Movie[]=watchlist.filter(mov=>mov.title!=movie.title);
+            
+          //  watchlist.filter(mov=>mov.id!==movie.id);
+            console.log(found);
            
-             return watchlist;
+             return found;
         }
         default:
         return watchlist;

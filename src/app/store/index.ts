@@ -4,10 +4,11 @@ import {Movie} from '../models/movie';
 import {ActionReducerMap} from '@ngrx/store';
 import watchlistReducer from './reducers/watchlist.reducer';
 
+export * from './effects';
 
 
 export interface State {
-    movies: Movie[],
+    movies:Movie[] ,
     view:Movie,
     watchlist:Movie[]
    
@@ -20,3 +21,4 @@ export const rootReducer: ActionReducerMap<State> = {
 
     
 }
+

@@ -1,7 +1,10 @@
-import {Action} from '@ngrx/store'
 import {Movie} from '../models/movie'
+import {Action} from '@ngrx/store'
 
+export const LOAD_MOVIES="Load movies";
+export const LOAD_MOVIES_SUCCESS="Load movies success";
 export const SEARCH_MOVIE = "Search movie";
+export const SEARCH_MOVIE_SUCCESS = "Search movie sucess";
 export const SEARCH_GENRE="Search genre";
 export const VIEW_DETAILS="View details";
 export const ADD_TO_WATCHLIST="Add to watchlist";
@@ -9,6 +12,21 @@ export const REMOVE_MOVIE="Remove movie";
 export const POSITIVE_VOTE="Positive vote";
 export const NEGATIVE_VOTE="Negative vote";
 
+
+export class LoadMovies implements Action {
+    type = LOAD_MOVIES;
+   
+    constructor(){
+
+    }
+}
+export class LoadMoviesSuccess implements Action {
+    type = LOAD_MOVIES_SUCCESS;
+   
+    constructor(public payload: Movie[]){
+
+    }
+}
 export class SearchMovie implements Action {
     type = SEARCH_MOVIE;
    
@@ -16,10 +34,18 @@ export class SearchMovie implements Action {
 
     }
 }
+export class SearchMovieSuccess implements Action{
+    type=SEARCH_MOVIE_SUCCESS;
+
+    constructor(public payload:Movie[])
+    {
+
+    }
+}
 
 export class SearchGenre implements Action {
     type = SEARCH_GENRE;
- //  public Movies:Movie[];
+  public Movies:Movie[];
    constructor(public genre: string){
  
    

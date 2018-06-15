@@ -1,11 +1,13 @@
 import {Movie} from '../../models/movie';
-import { Action } from "@ngrx/store";
+import { Action,  } from "@ngrx/store";
 
 import { Http } from '@angular/http';
-import { SEARCH_GENRE, SearchGenre, SEARCH_MOVIE,SearchMovie,POSITIVE_VOTE,PositiveVote,NEGATIVE_VOTE,NegativeVote } from "../actions";
+import {LOAD_MOVIES_SUCCESS,LOAD_MOVIES,LoadMovies, SEARCH_GENRE, SearchGenre, SEARCH_MOVIE,SearchMovie,POSITIVE_VOTE,PositiveVote,NEGATIVE_VOTE,NegativeVote, SearchMovieSuccess,SEARCH_MOVIE_SUCCESS, LoadMoviesSuccess } from "../actions";
 
-const initialState: Movie[] =  [
-    {
+
+var initialState: Movie[] =  []
+  /* data:[ 
+       {
         id: 0,
         title: "Ring",
         imgsrc: "https://m.media-amazon.com/images/M/MV5BNDA2NTg2NjE4Ml5BMl5BanBnXkFtZTYwMjYxMDg5._V1_.jpg",
@@ -83,46 +85,31 @@ const initialState: Movie[] =  [
         positive:20,
         negative:10
     }
-
-
-
 ]
-/*var initialState: Movie[]=[];
-var initialStatee=[];
-fetch('http://localhost:3000/movies')
-      .then(response => response.json())
-      .then(json => {
-       // this.setState({ initialState: json });
-      // this.setState( json );
-       //this.initialState=json.stringify();
-     initialStatee=json.deserialize();
-       console.log(json);
-       console.log(initialStatee);
-       
-      });
-      console.log(initialStatee);
-      ////
-     var initialState: Movie[];
-      const URL = 'http://localhost:3000/movies';
-      var http:Http;
-      http.get('http://localhost:3000/movies')
-      .toPromise()
-      .then(res=>{
-          res.json().data;
-          console.log(res);
-      });*/
-      
 
-      
+}*/    
 
-export default function (state: Movie[] = initialState, action: Action) {
+export default function (state = initialState, action: Action) {
     switch (action.type) {
+        case LOAD_MOVIES:
+        {
+            return state;
+            
+        }
+        case LOAD_MOVIES_SUCCESS:{
+           const {payload}=(action as LoadMoviesSuccess);
+          initialState=payload;
+          
+          console.log(initialState);
+            return payload;
+        }
         case SEARCH_GENRE:
             {
                 const {genre} = (action as  SearchGenre)
-                var movies:Movie[]=initialState;
+                const movies:Movie[]=initialState;
+            
                 if(genre=="All"){
-                    return movies;
+                    return initialState;
                 }
                 else
                 {
@@ -139,8 +126,9 @@ export default function (state: Movie[] = initialState, action: Action) {
             if(found!=null)
                 return found;
             else
-            return null;
+                return null;
         }
+       
         case POSITIVE_VOTE:
         {
             //treba da se izmeni u bazi

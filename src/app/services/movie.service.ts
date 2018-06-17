@@ -6,14 +6,13 @@ import {Http, Response} from "@angular/http";
 
 @Injectable()
 export class MovieService {
-   // private movies: Movie[];
-   // private searched:Movie;
+ 
 
     private baseUrl="http://localhost:3000/movies";
 
 
     constructor(private http:Http) {
-       // this.movies = [];
+       
               
     }
     public getAll():Observable<Movie[]>{
@@ -22,9 +21,19 @@ export class MovieService {
 
     }
 
-    public addVote(movie:Movie){
-        this.http.put(this.baseUrl+"?title='"+movie.title+"'",movie).pipe(
-          //  res=>res.toJson()
+    public postPositiveVote(movie:Movie){
+    console.log(movie);
+      return  this.http.put(this.baseUrl+"/"+movie.id,movie).pipe(
+         
         )
     }
+
+    public postNegativeVote(movie:Movie){
+        console.log(movie);
+          return  this.http.put(this.baseUrl+"/"+movie.id,movie).pipe(
+             
+            )
+        }
+
+    
 } 

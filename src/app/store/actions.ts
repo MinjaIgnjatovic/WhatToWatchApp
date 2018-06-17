@@ -11,6 +11,8 @@ export const ADD_TO_WATCHLIST="Add to watchlist";
 export const REMOVE_MOVIE="Remove movie";
 export const POSITIVE_VOTE="Positive vote";
 export const NEGATIVE_VOTE="Negative vote";
+export const POSITIVE_VOTE_SUCCESS="Positive vote success";
+export const NEGATIVE_VOTE_SUCCESS="Positive vote success";
 
 
 export class LoadMovies implements Action {
@@ -22,9 +24,10 @@ export class LoadMovies implements Action {
 }
 export class LoadMoviesSuccess implements Action {
     type = LOAD_MOVIES_SUCCESS;
+    
+    constructor(public movies: Movie[]){
+       
    
-    constructor(public payload: Movie[]){
-
     }
 }
 export class SearchMovie implements Action {
@@ -37,7 +40,7 @@ export class SearchMovie implements Action {
 export class SearchMovieSuccess implements Action{
     type=SEARCH_MOVIE_SUCCESS;
 
-    constructor(public payload:Movie[])
+    constructor(public movies:Movie[])
     {
 
     }
@@ -82,11 +85,27 @@ export class PositiveVote implements Action{
       
     }
 }
+export class PostPositiveVoteSucces implements Action{
+    type=POSITIVE_VOTE_SUCCESS;
+
+    constructor(public s:String)
+    {
+
+    }
+}
 export class NegativeVote implements Action{
     type=NEGATIVE_VOTE;
 
     constructor(public movie:Movie){
       
+    }
+}
+export class PostNegativeVoteSucces implements Action{
+    type=NEGATIVE_VOTE_SUCCESS;
+
+    constructor(public s:String)
+    {
+
     }
 }
 

@@ -17,15 +17,32 @@ export class VotesEffects{
     )
     {}
 
-  /*  @Effect()
-    addVote$=this.actions$.ofType(movieActions.POSITIVE_VOTE).pipe(
-        switchMap(()=>{
-            
-            return this.movieService.addVote().pipe(
-               // map(movies=>new movieActions.LoadMoviesSuccess(movies))
+    @Effect()
+    post$ = this.actions$
+        .ofType(movieActions.POSITIVE_VOTE)
+        .pipe(
+            map(info => (info as movieActions.PositiveVote).movie),
+            switchMap(movie => {
+                return this.movieService.postPositiveVote(movie)
+                    .pipe(
+                        map(movie => new movieActions.PostPositiveVoteSucces("success"))
+                    )
+            })
+        )
 
-            )
-        })
-    )*/
-    
-}
+        @Effect()
+    postt$ = this.actions$
+        .ofType(movieActions.NEGATIVE_VOTE)
+        .pipe(
+            map(info => (info as movieActions.NegativeVote).movie),
+            switchMap(movie => {
+                return this.movieService.postNegativeVote(movie)
+                    .pipe(
+                        map(movie => new movieActions.PostNegativeVoteSucces("success"))
+                    )
+            })
+        )
+
+
+
+    }

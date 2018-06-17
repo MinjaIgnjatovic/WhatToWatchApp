@@ -3,12 +3,11 @@ import viewReducer from './reducers/view.reducer';
 import {Movie} from '../models/movie';
 import {ActionReducerMap} from '@ngrx/store';
 import watchlistReducer from './reducers/watchlist.reducer';
-
+import {MovieState} from './reducers/movies.reducer'
 export * from './effects';
 
-
 export interface State {
-    movies:Movie[] ,
+    movies:MovieState ,
     view:Movie,
     watchlist:Movie[]
    

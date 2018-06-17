@@ -7,11 +7,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ExploreComponent } from './components/explore/explore.component';
-import { EventComponent } from './components/event/event.component';
 import { WatchListComponent } from './components/watch-list/watch-list.component';
-import { TwitterComponent } from './components/twitter/twitter.component';
-import { SponsorComponent } from './components/sponsor/sponsor.component';
-import { ContactComponent } from './components/contact/contact.component';
+import { RecommendationComponent } from './components/recommendation/recommendation.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MovielistComponent } from './components/movielist/movielist.component';
 import { rootReducer,effects } from './store';
@@ -34,11 +31,9 @@ const appRoutes: Routes=[
     HomeComponent,
     NavbarComponent,
     ExploreComponent,
-    EventComponent,
+   
     WatchListComponent,
-    TwitterComponent,
-    SponsorComponent,
-    ContactComponent,
+    RecommendationComponent,
     FooterComponent,
     MovielistComponent,
     MovieComponent,
@@ -50,10 +45,8 @@ const appRoutes: Routes=[
     FormsModule,
     HttpModule,
    
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    ),
+   
+    
     StoreModule.forRoot(rootReducer),
     EffectsModule.forRoot(effects),
     

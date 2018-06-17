@@ -4,9 +4,9 @@ import {Store} from '@ngrx/store'
 import { State } from '../../store';
 import { Observable } from 'rxjs';
 import { MovieService } from '../../services/movie.service';
-
+import * as fromMovie from '../../store/reducers/movies.reducer';
 import {ViewDetails,LoadMovies,SearchMovie} from '../../store/actions';
-
+import {selectors as MovieSelectors} from '../../store/reducers/movies.reducer';
 declare var jQuery:any;
 declare var $:any;
 declare var $ans:any;
@@ -22,18 +22,19 @@ export class MovielistComponent implements OnInit {
   view$:Observable<Movie>
  
   constructor(private store: Store<State>) {
-    
-   this.view$ = this.store.select(state => state.view)
+    this.movies$ = this.store.select((state: State) => MovieSelectors.selectAll(state.movies))
    
-   // “store.select” to give access our components to the state.
+   this.view$ = this.store.select(state => state.view)
   
    }
+
    onClickMovie(movie: Movie){
     this.store.dispatch(new ViewDetails(movie))
   }
+
    onSearchMovie(movie:string)
    {
-     this.store.dispatch(new SearchMovie(movie));// we can use “store.dispatch” to call an action
+     this.store.dispatch(new SearchMovie(movie));
      this.view$ = this.store.select(state => state.view)
      console.log(this.view$);
    
@@ -42,13 +43,12 @@ export class MovielistComponent implements OnInit {
   ngOnInit() {
    
     this.store.dispatch(new LoadMovies())
-    this.movies$ = this.store.select(state => state.movies)
     
   }
   viewDetails(movie)
   {
     console.log("Akcija "+movie.title);
-   this.store.dispatch(new ViewDetails(movie));// we can use “store.dispatch” to call an action
+   this.store.dispatch(new ViewDetails(movie));
   
   }
 

@@ -7,25 +7,20 @@
                 <h2 class="heading">Your Watch-List</h2>
                <div class="carousel-inner">
                   <div class="item active">
-                       
-                          <div *ngFor="let film of movies$|async" class="col-lg-3 col-md-4 col-sm-6 col-sm-4" id='kont'>
-                             <button type="button" class="close" aria-label="Close" (click)="removeMovie(film)">
+                    
+                          <div *ngFor="let film of list" class="col-lg-3 col-md-4 col-sm-6 col-sm-4" id='kont'>
+                             <button type="button" class="close" aria-label="Close" (click)="removeMovie(film.id)">
                                   <span aria-hidden="true">&times;</span>
                                 </button> 
                             <app-movie
                               [movie]="film"
-                              (clickedEvent)="onClickMovie($event)"
                                >
                                
                               </app-movie>
                               
-                          </div>
-
+                          </div> 
                        
-                      
-                      
-                      
-                    
+                                            
                     </div>
                   </div>
                 </div>

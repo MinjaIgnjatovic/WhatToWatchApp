@@ -1,80 +1,10 @@
 import {Movie} from '../../models/movie';
 import { Action, State  } from "@ngrx/store";
-
 import { Http } from '@angular/http';
-import {LOAD_MOVIES_SUCCESS,LOAD_MOVIES,LoadMovies, SEARCH_GENRE, SearchGenre, SEARCH_MOVIE,SearchMovie,POSITIVE_VOTE,PositiveVote,NEGATIVE_VOTE,NegativeVote, SearchMovieSuccess,SEARCH_MOVIE_SUCCESS, LoadMoviesSuccess } from "../actions";
-
+import {LOAD_MOVIES_SUCCESS,LOAD_MOVIES,LoadMovies, SEARCH_GENRE,SEARCH_GENRE_SUCCESS, SearchGenre,SearchGenreSuccess, SEARCH_MOVIE,SearchMovie,POSITIVE_VOTE,PositiveVote,NEGATIVE_VOTE,NegativeVote, SearchMovieSuccess,SEARCH_MOVIE_SUCCESS, LoadMoviesSuccess } from "../actions";
 import {EntityState,createEntityAdapter,EntityAdapter} from '@ngrx/entity';
 import {createFeatureSelector} from '@ngrx/store';
-
-//var initialState: Movie[] =  []
-
-/*
-export default function (state = initialState, action: Action) {
-    switch (action.type) {
-        case LOAD_MOVIES:
-        {
-            return state;
-            
-        }
-        case LOAD_MOVIES_SUCCESS:{
-           const {payload}=(action as LoadMoviesSuccess);
-          initialState=payload;
-          
-          console.log(initialState);
-            return payload;
-        }
-        case SEARCH_GENRE:
-            {
-                const {genre} = (action as  SearchGenre)
-                const movies:Movie[]=initialState;
-            
-                if(genre=="All"){
-                    return initialState;
-                }
-                else
-                {
-                      var found: Movie[]=movies.filter(movies=>movies.genre===genre );
-                    return found;
-                }
-              
-            }
-        case SEARCH_MOVIE:
-        {
-            const {movie}=(action as SearchMovie)
-            var movies:Movie[]=initialState;
-            var found:Movie[]=movies.filter(mov=>mov.title==movie);
-            if(found!=null)
-                return found;
-            else
-                return null;
-        }
-       
-        case POSITIVE_VOTE:
-        {
-            //treba da se izmeni u bazi
-        }
-        case NEGATIVE_VOTE:
-        {
-            //izmena
-        }
-        default: {
-            return state
-        }
-    }
-}
-
-export interface Movie{
-    id: number,
-    title: string,
-    imgsrc: string,
-    description: string,
-    genre:string,
-    rating: number,
-    year:string,
-    positive:number,
-    negative:number
-}*/
+   
 export interface MovieState extends EntityState<Movie>{
     
 }
@@ -85,51 +15,68 @@ export const initialState: MovieState={
     ids:[],
     entities:{}
 }
-export const iss:MovieState={
-    ids:[],
-    entities:{}
-}
-var moviesl:Movie[]=[];
 
 export default function (state:MovieState = initialState, action: Action) {
   
     switch (action.type) {
        
-        case LOAD_MOVIES_SUCCESS:{
+        case LOAD_MOVIES_SUCCESS:{   
+            const {movies}=(action as LoadMoviesSuccess)    
+            return (adapter.addMany(movies,state))
+         }
+        
+         case SEARCH_MOVIE_SUCCESS:{
+           const {movie}=(action as SearchMovieSuccess)
+            const clean=adapter.removeAll(state)
+           return adapter.addOne(movie,clean)
+         }
          
-            const {movies}=(action as LoadMoviesSuccess);
-           // console.log(movies);
-            moviesl=movies;
-           
-          return (adapter.addMany(movies,state));
+         case SEARCH_GENRE_SUCCESS:{
+            const {movies}=(action as SearchGenreSuccess)
+            adapter.removeAll(state)
+            return (adapter.addMany(movies,state))
+          }
+
+         default:{
 
          }
-        case SEARCH_GENRE:
-            {
-                const {genre} = (action as  SearchGenre)
-               
-            
-                if(genre=="All"){
-                    return (adapter.addMany(moviesl,state));
-                }
-                else
-                {
-                    const clean=adapter.removeAll(state);
-                    var found: Movie[]=moviesl.filter(movies=>movies.genre===genre );
-                      
-                    return(adapter.addMany(found,iss));
-                  
+        }
+    }
+
+
+
+/*var moviesList:Movie[]=[];
+
+export default function (state:MovieState = initialState, action: Action) {
+  
+    switch (action.type) {
+       
+        case LOAD_MOVIES_SUCCESS:{    
+            const {movies}=(action as LoadMoviesSuccess)
+            moviesList=movies     
+            return (adapter.addMany(movies,state))
+         }
+        
+         case SEARCH_GENRE: {
+             const {genre} = (action as  SearchGenre)
+             if(genre=="All"){
+                 return adapter.addMany(moviesList,state)
+              }
+             else{ 
+                var found: Movie[]=moviesList.filter(movies=>movies.genre==genre );
+                const clean=adapter.removeAll(state); 
+                return adapter.addMany(found,clean)              
                 }
               
             }
         case SEARCH_MOVIE:
-        {
-            
-            const {movie}=(action as SearchMovie)
-            var movies:Movie[]=moviesl;
-            var found:Movie[]=movies.filter(mov=>mov.title==movie);
+        { 
+            const {title}=(action as SearchMovie)
+            var movies:Movie[]=moviesList
+            var found:Movie[]=movies.filter(mov=>mov.title==title);
+            const clean=adapter.removeAll(state);
             if(found!=null)
-                return adapter.addMany(found,iss);
+                return adapter.addMany(found,clean);
             else
                 return null;
         }
@@ -139,7 +86,6 @@ export default function (state:MovieState = initialState, action: Action) {
             return state
         }
     }
-}
+}*/
 
 export const selectors=adapter.getSelectors();
-

@@ -9,7 +9,7 @@
                     <h2>Featured Movies</h2>
                     <div>
                            
-                            <div *ngFor="let film of movies$|async" class="col-lg-3 col-md-4 col-sm-6" id='kont'>
+                            <div *ngFor="let film of list" class="col-lg-3 col-md-4 col-sm-6" id='kont'>
                                 <app-movie
                                 [movie]="film"
                                 [clicked]="view$ | async"

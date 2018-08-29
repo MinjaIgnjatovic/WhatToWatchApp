@@ -7,18 +7,20 @@
       "description": "Teenagers Katie and Becca discuss an urban legend about a videotape; whoever watches it dies seven days later. Katie confesses that she watched the tape with her friends the previous week. That night, Katie dies and Becca goes insane.",
       "genre": "Horor",
       "rating": 8.5,
-      "positive": 20,
-      "negative": 10
+      "positive": 23,
+      "negative": 12,
+      "year": 2004
     },
     {
       "id": 1,
       "title": "The Hangover",
-      "imgsrc": "https://m.media-amazon.com/images/M/MV5BNDAxMTZmZGItZmM2NC00M2E1LWI1NmEtZjhhODM2MGU0ZmJlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX675_CR0,0,675,999_AL_.jpg",
+      "imgsrc": "https://m.media-amazon.com/images/M/MV5BNGQwZjg5YmYtY2VkNC00NzliLTljYTctNzI5NmU3MjE2ODQzXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX675_CR0,0,675,999_AL_.jpg",
       "description": "Three buddies wake up from a bachelor party in Las Vegas, with no memory of the previous night and the bachelor missing. They make their way around the city in order to find their friend before his wedding.",
       "genre": "Comedy",
       "rating": 8.4,
-      "positive": 20,
-      "negative": 10
+      "positive": 21,
+      "negative": 10,
+      "year": 2012
     },
     {
       "id": 2,
@@ -27,8 +29,9 @@
       "description": "A romantic drama centered on two new lovers: Tyler, whose parents have split in the wake of his brother's suicide, and Ally, who lives each day to the fullest since witnessing her mother's murder.",
       "genre": "Drama",
       "rating": 9,
-      "positive": 20,
-      "negative": 10
+      "positive": 21,
+      "negative": 10,
+      "year": 2010
     },
     {
       "id": 3,
@@ -37,8 +40,9 @@
       "description": "Foul-mouthed mutant mercenary Wade Wilson (AKA. Deadpool), brings together a team of fellow mutant rogues to protect a young boy with supernatural abilities from the brutal, time-traveling cyborg, Cable.",
       "genre": "Action",
       "rating": 8.4,
-      "positive": 20,
-      "negative": 10
+      "positive": 23,
+      "negative": 12,
+      "year": 2018
     },
     {
       "id": 4,
@@ -47,8 +51,8 @@
       "description": "Sheriff Deputy Rick Grimes wakes up from a coma to learn the world is in ruins, and must lead a group of survivors to stay alive.",
       "genre": "Thriller",
       "rating": 8.1,
-      "positive": 20,
-      "negative": 10
+      "positive": 21,
+      "negative": 11
     },
     {
       "id": 5,
@@ -57,8 +61,9 @@
       "description": "A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy's room.",
       "genre": "Animation",
       "rating": 8.3,
-      "positive": 21,
-      "negative": 10
+      "positive": 23,
+      "negative": 10,
+      "year": 2017
     }
   ]
 }

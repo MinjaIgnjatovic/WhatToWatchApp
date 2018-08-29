@@ -17,11 +17,8 @@ export class ExploreComponent implements OnInit {
   printedOption:string;
   searchMoviee:string;
 
-  
-  
   //public genre$: Observable<string>
-
-  
+ 
   options=[
     {name:'Horor', value:'Horor'},
     {name:'Drama', value:'Drama'},
@@ -35,9 +32,6 @@ export class ExploreComponent implements OnInit {
   constructor(private store$: Store<State>) { 
      // this.genre$=this.store$.select(state=>state.searchedGenre);
   }
-
-  
-
   ngOnInit() {
   }
 

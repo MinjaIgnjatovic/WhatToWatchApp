@@ -28,16 +28,13 @@ export class MovieComponent implements OnInit {
   
   constructor(private store$: Store<State>) { 
     this.view$ = this.store$.select(state => state.view)
-  
   }
 
   ngOnInit() {
   }
 
  viewDetails(){
-   console.log(this.movie);
-   this.clickedEvent.emit(this.movie);
- 
+    this.clickedEvent.emit(this.movie);
  }
 
 }

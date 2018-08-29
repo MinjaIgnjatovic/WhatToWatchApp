@@ -4,6 +4,8 @@ import {Store} from '@ngrx/store'
 import { State } from '../../store';
 import { Observable } from 'rxjs';
 import {RemoveFromWatchlist} from '../../store/actions';
+import {selectors as MovieSelectors} from '../../store/reducers/watchlist.reducer';
+import { MovieState } from '../../store/reducers/movies.reducer';
 
 @Component({
   selector: 'app-watchlist',
@@ -12,20 +14,22 @@ import {RemoveFromWatchlist} from '../../store/actions';
 })
 export class WatchListComponent implements OnInit {
 
-  movies$:Observable<Movie[]>
+    watchlist$:Observable<MovieState>
+    list:Movie[]
 
-  constructor(private store$: Store<State>) { 
-
-    this.movies$ = this.store$.select(state => state.watchlist)
-   
+    constructor(private store$: Store<State>) { 
+       this.watchlist$ = this.store$.select(state => state.watchlist)
+       this.watchlist$.subscribe(list =>{
+       if(list!=undefined)
+         this.list = MovieSelectors.selectAll(list)       
+    })
   }
 
   ngOnInit() {
   }
 
-  removeMovie(movie:Movie)
-  {
-    this.store$.dispatch(new RemoveFromWatchlist(movie))
+  removeMovie(id:number){
+    this.store$.dispatch(new RemoveFromWatchlist(id))
   }
 
 }

@@ -22,7 +22,30 @@ export class MoviesEffects{
         switchMap(()=>{
             return this.movieService.getAll().pipe(
                 map(movies=>new movieActions.LoadMoviesSuccess(movies))
+            )
+        })
+    )
 
+    @Effect()
+    searchedMovie$=this.actions$.ofType(movieActions.SEARCH_MOVIE)
+    .pipe(
+        map(movie => (movie as movieActions.SearchMovie).title),
+        switchMap(movie=>{
+            return this.movieService.searchMovie(movie)
+            .pipe(
+                map(movie=>new movieActions.SearchMovieSuccess(movie))
+            )
+        })
+    )
+
+    @Effect()
+    searchedGenre$=this.actions$.ofType(movieActions.SEARCH_GENRE)
+    .pipe(
+        map(genre=> (genre as movieActions.SearchGenre).genre),
+        switchMap(genre=>{
+            return this.movieService.searchGenre(genre)
+            .pipe(
+                map(movies=>new movieActions.SearchGenreSuccess(movies))
             )
         })
     )

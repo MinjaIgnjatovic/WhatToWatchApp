@@ -31,7 +31,6 @@ const appRoutes: Routes=[
     HomeComponent,
     NavbarComponent,
     ExploreComponent,
-   
     WatchListComponent,
     RecommendationComponent,
     FooterComponent,
@@ -44,8 +43,6 @@ const appRoutes: Routes=[
     BrowserModule,
     FormsModule,
     HttpModule,
-   
-   
     
     StoreModule.forRoot(rootReducer),
     EffectsModule.forRoot(effects),

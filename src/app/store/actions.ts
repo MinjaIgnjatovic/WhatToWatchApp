@@ -6,6 +6,7 @@ export const LOAD_MOVIES_SUCCESS="Load movies success";
 export const SEARCH_MOVIE = "Search movie";
 export const SEARCH_MOVIE_SUCCESS = "Search movie sucess";
 export const SEARCH_GENRE="Search genre";
+export const SEARCH_GENRE_SUCCESS = "Search genre sucess";
 export const VIEW_DETAILS="View details";
 export const ADD_TO_WATCHLIST="Add to watchlist";
 export const REMOVE_MOVIE="Remove movie";
@@ -33,14 +34,14 @@ export class LoadMoviesSuccess implements Action {
 export class SearchMovie implements Action {
     type = SEARCH_MOVIE;
    
-    constructor(public movie: String){
+    constructor(public title: String){
 
     }
 }
 export class SearchMovieSuccess implements Action{
     type=SEARCH_MOVIE_SUCCESS;
 
-    constructor(public movies:Movie[])
+    constructor(public movie:Movie)
     {
 
     }
@@ -54,7 +55,14 @@ export class SearchGenre implements Action {
    
     }
 }
+export class SearchGenreSuccess implements Action{
+    type=SEARCH_GENRE_SUCCESS;
 
+    constructor(public movies:Movie[])
+    {
+
+    }
+}
 export class ViewDetails implements Action{
     type=VIEW_DETAILS;
 
@@ -74,7 +82,7 @@ export class AddToWatchlist implements Action{
 export class RemoveFromWatchlist implements Action{
     type=REMOVE_MOVIE;
 
-    constructor(public movie:Movie){
+    constructor(public id:number){
       
     }
 }
